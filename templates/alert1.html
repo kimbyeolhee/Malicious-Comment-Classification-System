@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Project: 악성댓글 필터링</title>
+  <style>
+    h1{text-align:center;}
+    body{background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4) ), url(http://mimg.segye.com/content/image/2019/10/20/20191020507873.jpg);
+      background-repeat: no-repeat; background-size:cover;}
+    p{font-family: 'Sunflower', sans-serif; font-size:130%; font-weight:600;color:wheat;}
+  </style>}
+</head>
+
+<body>
+  <h1 style="color:rgb(245, 168, 52); text-decoration: underline; font-family: 'Sunflower', sans-serif; font-size:200%; font-weight:bold">Project: 악성댓글 필터링</h1>
+  <center>
+  <form>
+    <div style="text-align:center;">
+        <img src={{url_for('static', filename='images/그림1.png')}} border='1' width='750'>
+    </div>
+    
+    ​<p>작성자: </p>
+    <p><input type='text' value={{ID}} readonly></p><br>
+
+    <p>댓글: </p>
+    <p><textarea cols="100" rows="10" readonly>{{comment}}</textarea></p>
+
+    {{dom|safe}}<br>
+
+    {% if new == 1 %}
+    ​'{{ID}}'님을 새로운 사용자로 등록합니다.<br>
+    {% endif %}
+    {% if max_troll >= 10 %}
+        {% if max_columns == 1 %}
+        ​{{ID}}는 비방 댓글을 자주 작성하는 사용자입니다.<br>
+        {% elif max_columns == 2 %}
+        {{ID}}는 차별하는 사용자입니다.<br>
+        {% elif max_columns == 3 %}
+        {{ID}}는 성적 수치심을 유발하는 사용자입니다.<br>
+        {% elif max_columns == 4 %}
+        {{ID}}는 저주/협박하는 사용자입니다.<br>
+        {% endif %}
+    {% endif %}
+    {% if category == '' %}
+	​작성하신 댓글은 악성댓글입니다.<br>
+    {% elif category != '' %}
+    ​작성하신 댓글은 악성댓글입니다. 해당 댓글은 {{category}}에 해당됩니다.<br>
+    {% endif %}
+    
+    <form action="/" method="POST">
+        <p><button type="button" onclick="location.href='/'"> 이전 페이지로 </button></p>
+  </form>
+  </center>
+</body>

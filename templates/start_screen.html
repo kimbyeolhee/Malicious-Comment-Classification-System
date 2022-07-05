@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Project: 악성댓글 필터링</title>
+  <style>
+    h1{text-align:center;}
+    body{background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(https://newsroom-prd-data.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2021/04/0406_SKT_%E1%84%8B%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%83%E1%85%A2%E1%86%BA%E1%84%80%E1%85%B3%E1%86%AF%E1%84%8F%E1%85%A1%E1%86%AF%E1%84%85%E1%85%A5%E1%86%B7_detail_02.jpg);
+      background-repeat: no-repeat; background-size:cover;}
+    p{font-family: 'Sunflower', sans-serif; font-size:130%; font-weight:600;color:wheat;}
+  </style>}
+</head>
+
+<body>
+  <h1 style="color:rgb(245, 168, 52); text-decoration: underline; font-family: 'Sunflower', sans-serif; font-size:200%; font-weight:bold">Project: 악성댓글 필터링</h1>
+  <center>
+    <form action="/predict_toxin" method="post">
+        <div style="text-align:center;">
+            <img src={{url_for('static', filename='images/그림1.png')}} border='1' width='750'>
+        </div>
+
+	​      <p stlye="font-family: 'Sunflower', sans-serif; font-size:200%; font-weight:500">작성자를 입력해주세요.</p>
+        <p><input type="text" id="input1" name="input1" autofocus></p><br>
+
+        <p style="font-family: 'Sunflower', sans-serif; font-size:130%; font-weight:600;color:wheat;">댓글을 입력해주세요.</p>
+        <p><textarea cols="100" rows="10" id="input2" name="input2"></textarea></p>
+        
+	    <p><input type="submit" value=" 등록 " onclick="alert('댓글등록')"></p>    
+    </form>
+  </center>
+</body>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Project: 악성댓글 필터링</title>
+ <style>
+    h1{text-align:center;}
+    body{background-image:url(http://file3.instiz.net/data/file3/2019/12/31/d/a/4/da4d143b988ebe05991294417c45a746.jpg),url('https://i.pinimg.com/564x/d6/cd/56/d6cd56d5dd05a5b9d3a43d87f02fb6b1.jpg'); 
+    background-repeat: no-repeat;background-position: left top, right top;  background-size: 20%20%,20%20%; 
+    background-color:rgb(247, 210, 210);}
+    p{font-family: 'Sunflower', sans-serif; font-size:130%; font-weight:600;color:rgb(238, 120, 218);}
+  </style>}
+</head>
+
+<body>
+  <h1 style="color:rgb(176, 79, 218); text-decoration: underline; font-family: 'Sunflower', sans-serif; font-size:200%; font-weight:bold">Project: 악성댓글 필터링</h1>
+  <center>
+  <form>
+    <div style="text-align:center;">
+        <img src={{url_for('static', filename='images/그림1.png')}} border='1' width='750'>
+    </div>
+
+    ​<p>작성자: </p>
+    <p><input type='text' value={{ID}} readonly></p><br>
+
+    <p>댓글: </p>
+    <p><textarea cols="100" rows="10" readonly>{{comment}}</textarea></p>
+    
+    {{dom|safe}}<br>
+
+    {% if new == 1 %}
+    ​'{{ID}}'님을 새로운 사용자로 등록합니다.<br>
+    {% endif %}
+    {% if max_troll >= 10 %}
+        {% if max_columns == 1 %}
+        ​{{ID}}는 비방 댓글을 자주 작성하는 사용자입니다.<br>
+        {% elif max_columns == 2 %}
+        {{ID}}는 차별하는 사용자입니다.<br>
+        {% elif max_columns == 3 %}
+        {{ID}}는 성적 수치심을 유발하는 사용자입니다.<br>
+        {% elif max_columns == 4 %}
+        {{ID}}는 저주/협박하는 사용자입니다.<br>
+        {% endif %}
+    {% endif %}
+    작성하신 댓글은 정상댓글입니다.<br>
+
+    <form action="/" method="POST">
+        <p><button type="button" onclick="location.href='/'"> 이전 페이지로 </button></p>
+  </form>
+  </center>
+</body>
