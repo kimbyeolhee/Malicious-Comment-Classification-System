@@ -1,13 +1,8 @@
 import pandas as pd
 import numpy as np
-#import os
 import re
-#from sklearn.preprocessing import OneHotEncoder
 import torch
 from torch import nn
-#import torch.nn.functional as F
-#import torch.optim as optim
-#from torch.utils.data import Dataset, DataLoader
 import gluonnlp as nlp
 import emoji
 from soynlp.normalizer import repeat_normalize
@@ -256,22 +251,6 @@ def visualize_text(datarecords, legend=True):
         )
     )
 
-    # if legend:
-    #     dom.append(
-    #         '<div style="border-top: 1px solid; margin-top: 5px; \
-    #         padding-top: 5px; display: inline-block">'
-    #     )
-    #     dom.append("<b>Legend: </b>")
-
-    #     for value, label in zip([-1, 0, 1], ["Negative", "Neutral", "Positive"]):
-    #         dom.append(
-    #             '<span style="display: inline-block; width: 10px; height: 10px; \
-    #             border: 1px solid; background-color: \
-    #             {value}"></span> {label}  '.format(
-    #                 value=_get_color(value), label=label
-    #             )
-    #         )
-    #     dom.append("</div>")
 
     dom.append("".join(rows))
     dom.append("</table>")
